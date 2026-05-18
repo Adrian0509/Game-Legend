@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GearUp — Produktet</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Gear<span>Up</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Produktet</a>
+        <a href="contact.html">Kontakt</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Ndrysho temën">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Hap menunë" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Produktet <span>Tona</span></h1>
+        <p>Gear dhe merch për çdo gamer — nga casual deri tek pro.</p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="services-section">
+      <div class="container">
+
+        <!-- FILTER BUTTONS -->
+        <div class="filter-btns" role="group" aria-label="Filtro produktet">
+          <button class="filter-btn active" data-filter="all">Të Gjitha</button>
+          <button class="filter-btn" data-filter="peripherals">Periferikë</button>
+          <button class="filter-btn" data-filter="setup">Setup</button>
+          <button class="filter-btn" data-filter="merch">Merch</button>
+        </div>
+
+        <!-- PRODUCT CARDS -->
+        <div class="services-grid" id="servicesGrid">
+
+          <article class="service-card" data-category="peripherals">
+            <div class="service-icon"><i class="fas fa-computer-mouse"></i></div>
+            <h3>Gaming Mouse Pro</h3>
+            <p>Mouse me sensor optik 25K DPI, 8 butona programueshëm dhe RGB. Ideal për FPS dhe MOBA.</p>
+            <span class="price">3 200 ALL</span>
+            <button class="btn-outline" data-modal="1">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="peripherals">
+            <div class="service-icon"><i class="fas fa-headphones"></i></div>
+            <h3>Headset 7.1 Surround</h3>
+            <p>Audio surround 7.1 virtual, mikrofon me noise cancelling dhe kushinetat memory foam. Dëgjo çdo hap.</p>
+            <span class="price">5 500 ALL</span>
+            <button class="btn-outline" data-modal="2">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="peripherals">
+            <div class="service-icon"><i class="fas fa-keyboard"></i></div>
+            <h3>Tastierë Mekanike</h3>
+            <p>Switch-a Cherry MX Red, ndriçim RGB për çelës, ndërtim alumini. Klakson që do ta dëgjojë gjithë shtëpia.</p>
+            <span class="price">7 800 ALL</span>
+            <button class="btn-outline" data-modal="3">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="setup">
+            <div class="service-icon"><i class="fas fa-desktop"></i></div>
+            <h3>Monitor 144Hz</h3>
+            <p>Panel IPS 27", 144Hz refresh rate, 1ms response time dhe AMD FreeSync. Pa blur, pa ghosting.</p>
+            <span class="price">32 000 ALL</span>
+            <button class="btn-outline" data-modal="4">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="setup">
+            <div class="service-icon"><i class="fas fa-chair"></i></div>
+            <h3>Karrige Gaming</h3>
+            <p>Mbështetëse lumbale dhe qafore, rregullim i plotë, rrip lëkure PU. Gameplay i gjatë pa dhimbje shpine.</p>
+            <span class="price">18 500 ALL</span>
+            <button class="btn-outline" data-modal="5">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="setup">
+            <div class="service-icon"><i class="fas fa-plug"></i></div>
+            <h3>RGB LED Strip</h3>
+            <p>Shiriti LED 5m me kontroll nga app, 16 milion ngjyra dhe sinkronizim me muzikën ose lojën.</p>
+            <span class="price">1 200 ALL</span>
+            <button class="btn-outline" data-modal="6">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="merch">
+            <div class="service-icon"><i class="fas fa-shirt"></i></div>
+            <h3>GearUp Hoodie</h3>
+            <p>Hoodie unisex pambuk 380g, dizajn ekskluziv GearUp, i disponueshëm në S–XXL dhe 4 ngjyra.</p>
+            <span class="price">2 800 ALL</span>
+            <button class="btn-outline" data-modal="7">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="merch">
+            <div class="service-icon"><i class="fas fa-hat-cowboy"></i></div>
+            <h3>Kapele Snapback</h3>
+            <p>Kapele me logo GearUp të qëndisur, rregullim snapback, material i fryrshëm. Streetwear gamer vibes.</p>
+            <span class="price">1 400 ALL</span>
+            <button class="btn-outline" data-modal="8">Mëso më shumë</button>
+          </article>
+
+          <article class="service-card" data-category="merch">
+            <div class="service-icon"><i class="fas fa-bag-shopping"></i></div>
+            <h3>Çanta Gaming</h3>
+            <p>Çantë backpack me ndarje për laptop 17", rrjetë për periferikë dhe dizajn stealth. Merr setup-in kudo.</p>
+            <span class="price">3 600 ALL</span>
+            <button class="btn-outline" data-modal="9">Mëso më shumë</button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-box">
+        <button class="modal-close" id="modalClose" aria-label="Mbyll modalin">
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 id="modalTitle"></h2>
+        <p id="modalBody"></p>
+        <a href="contact.html" class="btn-primary">Porosit Tani</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="logo">Gear<span>Up</span></a>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Produktet</a>
+        <a href="contact.html">Kontakt</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+      </div>
+      <p class="copyright">&copy; 2030 GearUp. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GearUp — Kontakt</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Gear<span>Up</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Produktet</a>
+        <a href="contact.html" class="active">Kontakt</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Ndrysho temën">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Hap menunë" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Na <span>Kontaktoni</span></h1>
+        <p>Pyetje për produkt, porosi apo bashkëpunim? Jemi gati.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section">
+      <div class="container contact-grid">
+
+        <!-- FORM -->
+        <div class="contact-form-wrap">
+          <form id="contactForm" novalidate>
+
+            <div class="form-group">
+              <label for="name">Emri i Plotë *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="p.sh. Klea Morina"
+                autocomplete="name"
+              />
+              <span class="error-msg" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="ju@shembull.com"
+                autocomplete="email"
+              />
+              <span class="error-msg" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subjekti *</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="p.sh. Pyetje për Gaming Mouse Pro"
+              />
+              <span class="error-msg" id="subjectError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">
+                Mesazhi *
+                <span class="char-counter" id="charCounter">0/20 min</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Shkruani mesazhin tuaj këtu (minimumi 20 karaktere)..."
+              ></textarea>
+              <span class="error-msg" id="messageError"></span>
+            </div>
+
+            <button type="submit" class="btn-primary">
+              Dërgo Mesazhin <i class="fas fa-paper-plane"></i>
+            </button>
+
+            <div class="form-success" id="formSuccess">
+              <i class="fas fa-check-circle"></i> Mesazhi u dërgua! Do t'ju kthehemi brenda 24 orësh.
+            </div>
+
+          </form>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <aside class="contact-info">
+          <h3>Na Gjeni Edhe Këtu</h3>
+          <ul>
+            <li>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <div>
+                <strong>Dyqani Fizik</strong>
+                <span>Rruga e Durrësit, Nr. 18, Tiranë</span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <div>
+                <strong>Email</strong>
+                <span>hello@gearup.al</span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <div>
+                <strong>Telefon / WhatsApp</strong>
+                <span>+355 68 555 0101</span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <div>
+                <strong>Orët e Hapjes</strong>
+                <span>E Hënë – E Shtunë: 10:00 – 20:00</span>
+              </div>
+            </li>
+            <li>
+              <i class="fab fa-discord" aria-hidden="true"></i>
+              <div>
+                <strong>Discord Community</strong>
+                <span>discord.gg/gearup — Bashkohu me komunitetin!</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Google Maps embed -->
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0!2d19.818!3d41.328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE5JzQxLjEiTiAxOcKwNDknMDQuOCJF!5e0!3m2!1sen!2s!4v1"
+              width="100%"
+              height="200"
+              style="border:0; border-radius:8px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Lokacioni i GearUp në hartë">
+            </iframe>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="logo">Gear<span>Up</span></a>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Produktet</a>
+        <a href="contact.html">Kontakt</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+      </div>
+      <p class="copyright">&copy; 2030 GearUp. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
