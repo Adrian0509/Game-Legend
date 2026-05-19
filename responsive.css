@@ -1,0 +1,54 @@
+/* ========== TABLET ========== */
+@media (max-width: 1024px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 600px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 40px 5%;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .cards-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: 95%;
+  }
+}

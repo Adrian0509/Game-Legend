@@ -1,0 +1,244 @@
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== BODY + CYBER BACKGROUND ========== */
+body {
+  font-family: "Syne", sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+
+  /* deep cyber gradient */
+  background: radial-gradient(circle at top, #1a1a2e 0%, #0f0f14 40%, #05050a 100%);
+}
+
+/* glowing orbs background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0, 255, 200, 0.15), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(255, 0, 120, 0.12), transparent 50%);
+}
+
+/* soft animation */
+body::before {
+  animation: glowMove 14s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+  0%   { transform: translate(0px, 0px); }
+  50%  { transform: translate(-20px, 20px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ========== LOGO ========== */
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.logo span {
+  color: #7c5cff;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(10, 10, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #222;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #7c5cff;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(124, 92, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(124, 92, 255, 0.6);
+}
+
+.btn-outline {
+  padding: 10px 15px;
+  border: 1px solid #7c5cff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: #7c5cff;
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.2;
+}
+
+.hero span {
+  color: #7c5cff;
+}
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title span {
+  color: #7c5cff;
+}
+
+/* ========== GRID ========== */
+.cards-grid,
+.stats-grid,
+.services-grid,
+.mvv-grid,
+.team-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.cards-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.services-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ========== CARDS ========== */
+.card,
+.stat-card,
+.service-card,
+.mvv-card,
+.team-card {
+  background: rgba(20, 20, 30, 0.85);
+  border: 1px solid rgba(124, 92, 255, 0.15);
+  padding: 20px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+.card:hover,
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 92, 255, 0.5);
+}
+
+/* ========== PRICE ========== */
+.price {
+  display: block;
+  margin: 10px 0;
+  color: #7c5cff;
+  font-weight: bold;
+}
+
+/* ========== CONTACT ========== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 5px;
+  background: #111;
+  color: white;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+}
