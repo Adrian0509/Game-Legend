@@ -52,3 +52,40 @@
     width: 95%;
   }
 }
+
+@media (max-width: 600px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    width: 220px;
+
+    background: rgba(15, 15, 25, 0.95);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid #333;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition: 0.3s;
+  }
+
+  .nav-links.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
