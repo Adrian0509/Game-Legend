@@ -9,11 +9,22 @@
 body {
   font-family: "Syne", sans-serif;
   color: #fff;
-  line-height: 1.6;
+  line-height: 2;
   overflow-x: hidden;
 
   /* deep cyber gradient */
   background: radial-gradient(circle at top, #1a1a2e 0%, #0f0f14 40%, #05050a 100%);
+}
+
+p {
+  margin-top: 12px;
+  color: #d6d6e7;
+}
+
+h1 {
+  font-size: 50px;
+  margin-top: 12px;
+  color: #d6d6e7;
 }
 
 /* glowing orbs background */
@@ -139,7 +150,7 @@ body::before {
 
 .hero h1 {
   font-size: 52px;
-  line-height: 1.2;
+  line-height: 2;
 }
 
 .hero span {
