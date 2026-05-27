@@ -27,13 +27,11 @@ const hamburgerBtn = document.getElementById('hamburger-btn');
 const navLinks = document.getElementById('navLinks');
 
 hamburgerBtn.addEventListener('click', () => {
-  // Toggle the active class on your menu to slide it in/out
+  // Toggles the .active class on #navLinks, triggering the "display: flex;" rule we added above
   navLinks.classList.toggle('active');
-  
-  // Toggle active class on hamburger for the X animation
   hamburgerBtn.classList.toggle('active');
   
-  // Accessibility bonus: updates screen readers on whether it's open
+  // Update accessibility attribute
   const isOpen = navLinks.classList.contains('active');
   hamburgerBtn.setAttribute('aria-expanded', isOpen);
 });
