@@ -23,14 +23,17 @@ toggleBtn.addEventListener('click', () => {
 });
 
 
-onst hamburger = document.getElementById('hamburger-btn');
-const navMenu = document.getElementById('nav-menu');
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navLinks = document.getElementById('navLinks');
 
-// Listen for a click on the hamburger button
-hamburger.addEventListener('click', () => {
-  // Toggle the 'active' class on the button (turns it into an X)
-  hamburger.classList.toggle('active');
+hamburgerBtn.addEventListener('click', () => {
+  // Toggle the active class on your menu to slide it in/out
+  navLinks.classList.toggle('active');
   
-  // Toggle the 'active' class on the menu (slides it in)
-  navMenu.classList.toggle('active');
+  // Toggle active class on hamburger for the X animation
+  hamburgerBtn.classList.toggle('active');
+  
+  // Accessibility bonus: updates screen readers on whether it's open
+  const isOpen = navLinks.classList.contains('active');
+  hamburgerBtn.setAttribute('aria-expanded', isOpen);
 });
