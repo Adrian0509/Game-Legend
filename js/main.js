@@ -30,18 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle menu visibility on click
     hamburgerBtn.addEventListener('click', () => {
         // Toggle the .show class on the nav menu
-        const isOpen = navLinks.classList.toggle('show');
+        const isOpen = navLinks.classList.toggle('.show');
         
         // Update accessibility attribute (true if open, false if closed)
         hamburgerBtn.setAttribute('aria-expanded', isOpen);
     });
-
-    // Optional: Close the menu when a link inside it is clicked
-    const links = navLinks.querySelectorAll('a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('show');
-            hamburgerBtn.setAttribute('aria-expanded', 'false');
-        });
-    });
-});
