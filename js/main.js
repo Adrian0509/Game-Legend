@@ -26,7 +26,7 @@ toggleBtn.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.getElementById('navLinks');
-
+    const isOpen = navLinks.classList.toggle('show');
     // Toggle menu visibility on click
     hamburgerBtn.addEventListener('click', () => {
         // Toggle the .show class on the nav menu
