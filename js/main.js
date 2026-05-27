@@ -23,24 +23,25 @@ toggleBtn.addEventListener('click', () => {
 });
 
 
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const navLinks = document.getElementById('navLinks');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('navLinks');
 
-hamburgerBtn.addEventListener('click', () => {
-  // Check if the menu is hidden or has no inline display style yet
-  if (navLinks.style.display === 'none' || navLinks.style.display === '') {
-    // Force the menu to show up and use a vertical stack layout
-    navLinks.style.display = 'flex';
-    navLinks.style.flexDirection = 'column';
-    
-    // Optional: Adds class for an 'X' animation if you have one in your CSS
-    hamburgerBtn.classList.add('active'); 
-    hamburgerBtn.setAttribute('aria-expanded', 'true');
-  } else {
-    // Hide the menu again
-    navLinks.style.display = 'none';
-    
-    hamburgerBtn.classList.remove('active');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
-  }
+    // Toggle menu visibility on click
+    hamburgerBtn.addEventListener('click', () => {
+        // Toggle the .show class on the nav menu
+        const isOpen = navLinks.classList.toggle('show');
+        
+        // Update accessibility attribute (true if open, false if closed)
+        hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Optional: Close the menu when a link inside it is clicked
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
 });
