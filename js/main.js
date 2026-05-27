@@ -21,3 +21,16 @@ toggleBtn.addEventListener('click', () => {
     localStorage.setItem('lightMode', 'disabled');
   }
 });
+
+
+onst hamburger = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
+
+// Listen for a click on the hamburger button
+hamburger.addEventListener('click', () => {
+  // Toggle the 'active' class on the button (turns it into an X)
+  hamburger.classList.toggle('active');
+  
+  // Toggle the 'active' class on the menu (slides it in)
+  navMenu.classList.toggle('active');
+});
