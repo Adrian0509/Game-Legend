@@ -29,9 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle menu visibility on click
     hamburgerBtn.addEventListener('click', () => {
-        // Toggle the .show class on the nav menu
+        // 1. Toggle the .show class on the nav menu
         const isOpen = navLinks.classList.toggle('show');
-        hamburgerBtn.classList.toggle('active', isOpen);
-        // Update accessibility attribute (true if open, false if closed)
+        
+        // 2. Update accessibility attribute INSIDE the click event
         hamburgerBtn.setAttribute('aria-expanded', isOpen);
-    });
+    }); // <-- Make sure the click event ends HERE
+});
