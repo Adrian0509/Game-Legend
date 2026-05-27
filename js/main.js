@@ -27,11 +27,20 @@ const hamburgerBtn = document.getElementById('hamburger-btn');
 const navLinks = document.getElementById('navLinks');
 
 hamburgerBtn.addEventListener('click', () => {
-  // Toggles the .active class on #navLinks, triggering the "display: flex;" rule we added above
-  navLinks.classList.toggle('active');
-  hamburgerBtn.classList.toggle('active');
-  
-  // Update accessibility attribute
-  const isOpen = navLinks.classList.contains('active');
-  hamburgerBtn.setAttribute('aria-expanded', isOpen);
+  // Check if the menu is hidden or has no inline display style yet
+  if (navLinks.style.display === 'none' || navLinks.style.display === '') {
+    // Force the menu to show up and use a vertical stack layout
+    navLinks.style.display = 'flex';
+    navLinks.style.flexDirection = 'column';
+    
+    // Optional: Adds class for an 'X' animation if you have one in your CSS
+    hamburgerBtn.classList.add('active'); 
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+  } else {
+    // Hide the menu again
+    navLinks.style.display = 'none';
+    
+    hamburgerBtn.classList.remove('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }
 });
