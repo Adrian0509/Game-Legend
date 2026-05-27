@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle menu visibility on click
     hamburgerBtn.addEventListener('click', () => {
         // Toggle the .show class on the nav menu
-        const isOpen = navLinks.classList.toggle('.show');
+        const isOpen = navLinks.classList.toggle('show');
         
         // Update accessibility attribute (true if open, false if closed)
         hamburgerBtn.setAttribute('aria-expanded', isOpen);
