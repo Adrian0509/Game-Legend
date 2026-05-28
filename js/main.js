@@ -1,3 +1,6 @@
+const SUPABASE_URL = "https://hcjrptnczbbgfffdtirb.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_fSnfb4i_4LZiBVCU6fSElw_u_7GViX4";
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const toggleBtn = document.getElementById('theme-toggle');
 const isLightMode = localStorage.getItem('lightMode') === 'enabled';
