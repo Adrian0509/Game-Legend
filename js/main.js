@@ -29,10 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle menu visibility on click
     hamburgerBtn.addEventListener('click', () => {
-        // 1. Toggle the .show class on the nav menu
         const isOpen = navLinks.classList.toggle('show');
-        
-        // 2. Update accessibility attribute INSIDE the click event
         hamburgerBtn.setAttribute('aria-expanded', isOpen);
-    }); // <-- Make sure the click event ends HERE
+    }); 
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observerOptions = {
+        root: null,         
+        rootMargin: '0px',  
+        threshold: 0.15     
+    };
+
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                
+                
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    
+    revealElements.forEach(element => {
+        revealOnScroll.observe(element);
+    });
 });
