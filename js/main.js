@@ -76,115 +76,55 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('email');
     const subjectInput = document.getElementById('subject');
     const messageInput = document.getElementById('message');
+    
     const nameError = document.getElementById('nameError');
     const emailError = document.getElementById('emailError');
     const subjectError = document.getElementById('subjectError');
     const messageError = document.getElementById('messageError');
-    const charCounter = document.getElementById('charCounter');
     const formSuccess = document.getElementById('formSuccess');
-    messageInput.addEventListener('input', () => {
-        const currentLength = messageInput.value.length;
-        charCounter.textContent = `${currentLength}/20 min`;
-        if (currentLength >= 20) {
-            charCounter.style.color = '#2ecc71'; 
-        } else {
-            charCounter.style.color = '';
-        }
-    });
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); 
-        let isValid = true;
-        nameError.textContent = '';
-        emailError.textContent = '';
-        subjectError.textContent = '';
-        messageError.textContent = '';
-        formSuccess.style.display = 'none';
-        if (nameInput.value.trim() === '') {
-            nameError.textContent = 'Ju lutem shkruani emrin tuaj të plotë.';
-            isValid = false;
-        } else if (nameInput.value.trim().length < 3) {
-            nameError.textContent = 'Emri duhet të ketë të paktën 3 karaktere.';
-            isValid = false;
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailInput.value.trim() === '') {
-            emailError.textContent = 'Ju lutem shkruani adresën tuaj të email-it.';
-            isValid = false;
-        } else if (!emailRegex.test(emailInput.value.trim())) {
-            emailError.textContent = 'Ju lutem shkruani një email të vlefshëm.';
-            isValid = false;
-        }
-        if (subjectInput.value.trim() === '') {
-            subjectError.textContent = 'Ju lutem shkruani subjektin e mesazhit.';
-            isValid = false;
-        }
-        if (messageInput.value.trim() === '') {
-            messageError.textContent = 'Ju lutem shkruani mesazhin tuaj.';
-            isValid = false;
-        } else if (messageInput.value.length < 20) {
-            messageError.textContent = 'Mesazhi duhet të përmbajë të paktën 20 karaktere.';
-            isValid = false;
-        }
-        if (isValid) {
-        try {
-            const { data, error } = await supabase
-                .from('users') 
-                .insert([
-                    { 
-                        name: nameInput.value.trim(), 
-                        email: emailInput.value.trim(),
-                        password: 'default_user_password_123'
+
+    if (form) { 
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            
+            let isValid = true;
+            nameError.textContent = '';
+            emailError.textContent = '';
+            subjectError.textContent = '';
+            messageError.textContent = '';
+
+            if (nameInput.value.trim() === '') { nameError.textContent = 'Shkruani emrin.'; isValid = false; }
+            if (emailInput.value.trim() === '') { emailError.textContent = 'Shkruani email.'; isValid = false; }
+            if (subjectInput.value.trim() === '') { subjectError.textContent = 'Shkruani subjektin.'; isValid = false; }
+            if (messageInput.value.trim().length < 20) { messageError.textContent = 'Mesazhi duhet 20 karaktere.'; isValid = false; }
+
+            if (isValid) {
+                try {
+                    const { data, error } = await supabase
+                        .from('contact_messages')
+                        .insert([
+                            { 
+                                name: nameInput.value.trim(), 
+                                email: emailInput.value.trim(), 
+                                subject: subjectInput.value.trim(), 
+                                message: messageInput.value.trim() 
+                            }
+                        ]);
+
+                    if (error) throw error;
+
+                    formSuccess.style.display = 'block';
+                    form.reset();
+                    if (document.getElementById('charCounter')) {
+                        document.getElementById('charCounter').textContent = '0/20 min';
                     }
-                ]);
 
-            if (error) throw error;
-
-            formSuccess.style.display = 'block';
-            form.reset();
-            charCounter.textContent = '0/20 min';
-            charCounter.style.color = '';
-
-        } catch (err) {
-            console.error("Database Error:", err.message);
-            alert("An error occurred while saving to the database: " + err.message);
-        }
-    }
-});
-
-form.addEventListener('submit', async (e) => {
-    e.preventDefault(); 
-    let isValid = true;
-    
-    nameError.textContent = '';
-    emailError.textContent = '';
-    subjectError.textContent = '';
-    messageError.textContent = '';
-    formSuccess.style.display = 'none';
-    
-    if (isValid) {
-        try {
-            const { data, error } = await supabase
-                .from('contact_messages')
-                .insert([
-                    { 
-                        name: nameInput.value.trim(), 
-                        email: emailInput.value.trim(), 
-                        subject: subjectInput.value.trim(), 
-                        message: messageInput.value.trim() 
-                    }
-                ]);
-
-            if (error) throw error;
-
-            formSuccess.style.display = 'block';
-            form.reset();
-            charCounter.textContent = '0/20 min';
-            charCounter.style.color = '';
-
-        } catch (err) {
-            console.error("Gabim gjatë ruajtjes në databazë:", err.message);
-            alert("Ndodhi një gabim teknik! Mesazhi nuk u dërgua dot.");
-        }
+                } catch (err) {
+                    console.error("Gabim gjatë dërgimit:", err.message);
+                    alert("Ndodhi një gabim gjatë dërgimit të mesazhit.");
+                }
+            }
+        });
     }
 });
 
