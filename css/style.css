@@ -391,3 +391,40 @@ body.light-mode .footer-links a {
 body.light-mode .logo {
   color: #111;
 }
+
+/* FORCE ALL TEXT DARK IN LIGHT MODE */
+body.light-mode,
+body.light-mode p,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode li,
+body.light-mode a,
+body.light-mode span,
+body.light-mode strong,
+body.light-mode label,
+body.light-mode .hero-tag,
+body.light-mode .hero-sub,
+body.light-mode .stat-label,
+body.light-mode .testimonial p,
+body.light-mode .testimonial strong,
+body.light-mode .role,
+body.light-mode .footer,
+body.light-mode .contact-info,
+body.light-mode .service-card,
+body.light-mode .card,
+body.light-mode .team-card,
+body.light-mode .mvv-card {
+  color: #111 !important;
+}
+
+/* KEEP PURPLE ACCENTS */
+body.light-mode .hero span,
+body.light-mode .logo span,
+body.light-mode .section-title span,
+body.light-mode .price {
+  color: #7c5cff !important;
+}
