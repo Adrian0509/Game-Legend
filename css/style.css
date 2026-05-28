@@ -360,7 +360,7 @@ body.light-mode .footer {
 }
 
 .reveal.fade-in {
-    transform: scale(0.95); 
+    transform: scale(0.01); 
 }
 
 .reveal.slide-in {
