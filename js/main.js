@@ -1,7 +1,3 @@
-const SUPABASE_URL = "https://hcjrptnczbbgfffdtirb.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_fSnfb4i_4LZiBVCU6fSElw_u_7GViX4";
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
 const toggleBtn = document.getElementById('theme-toggle');
 const isLightMode = localStorage.getItem('lightMode') === 'enabled';
 if (isLightMode) {
@@ -72,19 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const subjectInput = document.getElementById('subject');
-    const messageInput = document.getElementById('message');
-    
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const subjectError = document.getElementById('subjectError');
-    const messageError = document.getElementById('messageError');
-    const formSuccess = document.getElementById('formSuccess');
 
-    if (form) { 
-        form.addEventListener('submit', async (e) => {
+    if (form) {
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const subjectInput = document.getElementById('subject');
+        const messageInput = document.getElementById('message');
+        
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const subjectError = document.getElementById('subjectError');
+        const messageError = document.getElementById('messageError');
+        const formSuccess = document.getElementById('formSuccess');
+
+        form.addEventListener('submit', (e) => {
             e.preventDefault(); 
             
             let isValid = true;
@@ -92,36 +89,33 @@ document.addEventListener('DOMContentLoaded', () => {
             emailError.textContent = '';
             subjectError.textContent = '';
             messageError.textContent = '';
+            formSuccess.style.display = 'none';
 
-            if (nameInput.value.trim() === '') { nameError.textContent = 'Shkruani emrin.'; isValid = false; }
-            if (emailInput.value.trim() === '') { emailError.textContent = 'Shkruani email.'; isValid = false; }
-            if (subjectInput.value.trim() === '') { subjectError.textContent = 'Shkruani subjektin.'; isValid = false; }
-            if (messageInput.value.trim().length < 20) { messageError.textContent = 'Mesazhi duhet 20 karaktere.'; isValid = false; }
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'Shkruani emrin.';
+                isValid = false;
+            }
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = 'Shkruani email.';
+                isValid = false;
+            }
+            if (subjectInput.value.trim() === '') {
+                subjectError.textContent = 'Shkruani subjektin.';
+                isValid = false;
+            }
+            if (messageInput.value.trim().length < 20) {
+                messageError.textContent = 'Mesazhi duhet te jete te pakten 20 karaktere.';
+                isValid = false;
+            }
 
             if (isValid) {
-                try {
-                    const { data, error } = await supabase
-                        .from('contact_messages')
-                        .insert([
-                            { 
-                                name: nameInput.value.trim(), 
-                                email: emailInput.value.trim(), 
-                                subject: subjectInput.value.trim(), 
-                                message: messageInput.value.trim() 
-                            }
-                        ]);
-
-                    if (error) throw error;
-
-                    formSuccess.style.display = 'block';
-                    form.reset();
-                    if (document.getElementById('charCounter')) {
-                        document.getElementById('charCounter').textContent = '0/20 min';
-                    }
-
-                } catch (err) {
-                    console.error("Gabim gjatë dërgimit:", err.message);
-                    alert("Ndodhi një gabim gjatë dërgimit të mesazhit.");
+                formSuccess.style.display = 'block';
+                form.reset();
+                
+                const charCounter = document.getElementById('charCounter');
+                if (charCounter) {
+                    charCounter.textContent = '0/20 min';
+                    charCounter.style.color = '';
                 }
             }
         });
