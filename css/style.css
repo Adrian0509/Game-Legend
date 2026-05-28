@@ -353,24 +353,20 @@ body.light-mode .footer {
 }
 
 /* ========== ANIMATION ========== */
-/* Extreme Testing Configuration */
 .reveal {
     opacity: 0;
-    /* Changed from 0.8s to 5s and made it a dramatic ease-in-out */
-    transition: all 5.0s ease-in-out; 
+    transition: all 1.2s ease-in-out; 
     will-change: opacity, transform;
 }
 
-/* Make the starting state completely different so you can see it move */
 .reveal.fade-in {
-    transform: scale(0.4); /* Starts tiny, scaled down to 40% */
+    transform: scale(0.8); 
 }
 
 .reveal.slide-in {
-    transform: translateY(200px); /* Starts deep down the page (200px lower) */
+    transform: translateY(200px);
 }
 
-/* The ending state remains normal */
 .reveal.active {
     opacity: 1;
     transform: translateY(0) scale(1);
