@@ -351,3 +351,25 @@ body.light-mode textarea {
 body.light-mode .footer {
   border-top: 1px solid #ddd;
 }
+
+/* ========== ANIMATION ========== */
+.reveal {
+    opacity: 0;
+    transition: all 0.8s ease-out; 
+    will-change: opacity, transform;
+}
+
+
+.reveal.fade-in {
+    transform: scale(0.95); 
+}
+
+.reveal.slide-in {
+    transform: translateY(40px); 
+}
+
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
