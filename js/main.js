@@ -132,15 +132,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const backToTopBtn = document.getElementById('backToTop');
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
+    // Standardizing support for different browsers to measure exactly 300px down
+    const scrolledDistance = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrolledDistance > 300) {
         backToTopBtn.classList.add('show');
     } else {
         backToTopBtn.classList.remove('show');
     }
 });
+
 backToTopBtn.addEventListener('click', () => {
     window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    document.documentElement.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
