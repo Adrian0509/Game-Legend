@@ -371,3 +371,13 @@ body.light-mode .footer {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
+
+/* ========== FILTER ========== */
+.service-card.hide {
+    display: none;
+}
+
+.filter-btn.active {
+    background-color: #ff4757;
+    color: white;
+}
