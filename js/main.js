@@ -126,34 +126,66 @@ document.addEventListener('DOMContentLoaded', () => {
             isValid = false;
         }
         if (isValid) {
+        try {
+            const { data, error } = await supabase
+                .from('users') 
+                .insert([
+                    { 
+                        name: nameInput.value.trim(), 
+                        email: emailInput.value.trim(),
+                        password: 'default_user_password_123'
+                    }
+                ]);
+
+            if (error) throw error;
+
             formSuccess.style.display = 'block';
             form.reset();
             charCounter.textContent = '0/20 min';
             charCounter.style.color = '';
+
+        } catch (err) {
+            console.error("Database Error:", err.message);
+            alert("An error occurred while saving to the database: " + err.message);
         }
-    });
+    }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        const scrolledDistance = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-        if (scrolledDistance > 300) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault(); 
+    let isValid = true;
+    
+    nameError.textContent = '';
+    emailError.textContent = '';
+    subjectError.textContent = '';
+    messageError.textContent = '';
+    formSuccess.style.display = 'none';
+    
+    if (isValid) {
+        try {
+            const { data, error } = await supabase
+                .from('contact_messages')
+                .insert([
+                    { 
+                        name: nameInput.value.trim(), 
+                        email: emailInput.value.trim(), 
+                        subject: subjectInput.value.trim(), 
+                        message: messageInput.value.trim() 
+                    }
+                ]);
+
+            if (error) throw error;
+
+            formSuccess.style.display = 'block';
+            form.reset();
+            charCounter.textContent = '0/20 min';
+            charCounter.style.color = '';
+
+        } catch (err) {
+            console.error("Gabim gjatë ruajtjes në databazë:", err.message);
+            alert("Ndodhi një gabim teknik! Mesazhi nuk u dërgua dot.");
         }
-    });
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-        document.documentElement.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
